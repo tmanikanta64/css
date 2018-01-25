@@ -48,3 +48,84 @@ After adding a <style> tag in the head section, you can begin writing CSS code.
 The CSS code in the example above changes the color of all paragraph text to red and also changes the size of the text to 20 pixels. Note how the syntax of the CSS code matches (for the most part) the syntax you used for inline styling. The main difference is that you can specify which elements to apply the styling to.
 
 Again, the details of the CSS syntax in the example above aren't important at the moment. You will learn more about the details of CSS syntax in later lessons.
+
+
+### The .css file
+Developers avoid mixing code by storing HTML and CSS code in separate files (HTML files contain only HTML code, and CSS files contain only CSS code).
+
+You can create a CSS file by using the .css file name extension, like so: style.css
+
+With a CSS file, you can write all the CSS code needed to style a page without sacrificing the readability and maintainability of your HTML file.
+
+### Linking the CSS File
+Perfect! We successfully separated structure (HTML) from styling (CSS), but the web page still looks bland. Why?
+
+When HTML and CSS code are in separate files, the files must be linked. Otherwise, the HTML file won't be able to locate the CSS code, and the styling will not be applied.
+
+You can use the <link> element to link HTML and CSS files together. The <link> element must be placed within the head of the HTML file. It is a self-closing tag and requires the following three attributes:
+
+href — like the anchor element, the value of this attribute must be the address, or path, to the CSS file.
+type — this attribute describes the type of document that you are linking to (in this case, a CSS file). The value of this attribute should be set to text/css.
+rel — this attribute describes the relationship between the HTML file and the CSS file. Because you are linking to a stylesheet, the value should be set to stylesheet.
+When linking an HTML file and a CSS file together, the <link> element will look like the following:
+
+<link href="https://www.codecademy.com/stylesheets/style.css" type="text/css" rel="stylesheet">
+Note that in the example above the path to the stylesheet is a URL:
+
+https://www.codecademy.com/stylesheets/style.css
+Specifying the path to the stylesheet using a URL is one way of linking a stylesheet.
+
+If the CSS file is stored in the same directory as your HTML file, then you can specify a relative path instead of a URL, like so:
+
+<link href="./style.css" type="text/css" rel="stylesheet">
+Using a relative path is very common way of linking a stylesheet.
+
+
+
+### Tag Name
+CSS can select HTML elements by using an element's tag name. A tag name is the word (or character) between HTML angle brackets.
+
+For example, in HTML, the tag for a paragraph element is <p>. The CSS syntax for selecting <p> elements is:
+
+p {
+
+}
+In the example above, all paragraph elements will be selected using a CSS selector. The selector in the example above is p. Note that the CSS selector matches the HTML tag for that element, but without the angle brackets.
+
+In addition, two curly braces follow immediately after the selector (an opening and closing brace, respectively). Any CSS properties will go inside of the curly braces to style the selected elements.
+
+
+### Class Name
+CSS is not limited to selecting elements by tag name. HTML elements can have more than just a tag name; they can also have attributes. One common attribute is the class attribute. It's also possible to select an element by its class attribute.
+
+For example, consider the following HTML:
+
+<p class="brand">Sole Shoe Company</p>
+The paragraph element in the example above has a class attribute within the <p> tag. The class attribute is set to "brand". To select this element using CSS, we could use the following CSS selector:
+
+.brand {
+
+}
+To select an HTML element by its class using CSS, a period (.) must be prepended to the class's name. In the example above case, the class is brand, so the CSS selector for it is .brand.
+
+
+### Multiple Classes
+We can use CSS to select an HTML element's class attribute by name.
+
+So far, we've selected elements using only one class name per element. If every HTML element had a single class, all the style information for each element would require a new class.
+
+Luckily, it's possible to add more than one class name to an HTML element's class attribute.
+
+For instance, perhaps there's a heading element that needs to be green and bold. You could write two CSS rules like so:
+
+.green {
+  color: green;
+}
+
+.bold {
+  font-weight: bold;
+}
+Then, you could include both of these classes on one HTML element like this:
+
+<h1 class="green bold"> ... </h1>
+We can add multiple classes to an HTML element's class attribute by separating them with a space. This enables us to mix and match CSS classes to create many unique styles without writing a custom class for every style combination needed.
