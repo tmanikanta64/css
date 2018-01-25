@@ -1,3 +1,3 @@
 # css
 ### introduction
-* css fullform cascaded style sheets.
+* css fullform cascading style sheets.
