@@ -23,7 +23,9 @@ If you'd like to add more than one style with inline styles, simply keep adding 
 
 
 ### The <style> Tag
-Inline styles are a fast way of styling HTML, but they also have limitations. If you wanted to style, for example, multiple <h1> elements, you would have to add inline styling to each element manually. In addition, you would also have to maintain the HTML code when additional <h1> elements are added.
+* Inline styles are a fast way of styling HTML, but they also have limitations. If you wanted to style, for example
+multiple elements you would have to add inline styling to each element manually. In addition, you would also have to maintain 
+ the HTML code when additional elements are added.
 
 Fortunately, HTML allows you to write CSS code in its own dedicated section with the <style> element. CSS can be written between opening and closing <style> tags. To use the <style> element, it must be placed inside of the <head> element.
 
