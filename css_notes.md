@@ -179,3 +179,75 @@ h1.special {
 
 }
 The code above would select only the h1 elements that have a class of special. If a p element also had a class of special, the rule in the example would not style the paragraph.
+
+
+### Nested Elements
+In addition to chaining selectors to select elements, CSS also supports selecting elements that are nested within other HTML elements. For instance, consider the following HTML:
+
+<ul class='main-list'>
+  <li> ... </li>
+  <li> ... </li>
+  <li> ... </li>
+</ul>
+The nested <li> elements are selected with the following CSS:
+
+.main-list li {
+
+}
+In the example above, .main-list selects the .main-list element (the unordered list element). The nested <li> are selected by adding li to the selector, separated by a space, resulting in .main-list li as the final selector (note the space in the selector).
+
+Selecting elements in this way can make our selectors even more specific by making sure they appear in the context we expect.
+
+
+### Chaining and Specificity
+In the last exercise, instead of selecting all h5 elements, you selected only the h5 elements nested inside the .description elements. This CSS selector was more specific than writing only h5. Adding more than one tag, class, or ID to a CSS selector increases the specificity of the CSS selector.
+
+For instance, consider the following CSS:
+
+p {
+  color: blue;
+}
+
+
+.main p {
+  color: red;
+}
+Both of these CSS rules define what a p element should look like. Since .main p has a class and a p tag as its selector, only the p elements inside the .main element will appear red. This occurs despite there being another more general rule that states p elements should be blue.
+
+### Important
+There is one thing that is even more specific than IDs: !important. !important can be applied to specific attributes instead of full rules. It will override any style no matter how specific it is. As a result, it should almost never be used. Once !important is used, it is very hard to override.
+
+The syntax of !important in CSS looks like this:
+
+p {
+  color: blue !important;
+}
+
+
+.main p {
+  color: red;
+}
+Since !important is used on the p selector’s color attribute, all p elements will appear blue, even though there is a more specific .main p selector that sets the color attribute to red.
+
+The !important flag is only useful when an element appears the same way 100% of the time. Since it's almost impossible to guarantee that this will be true throughout a project and over time, it's best to avoid !important altogether. If you ever see !important used (or are ever tempted to use it yourself) we strongly recommend reorganizing your CSS. Making your CSS more flexible will typically fix the immediate problem and make your code more maintainable in the long run.
+
+
+### Multiple Selectors
+In order to make CSS more concise, it's possible to add CSS styles to multiple CSS selectors all at once. This prevents writing repetitive code.
+
+For instance, the following code has repetitive style attributes:
+
+h1 {
+  font-family: Georgia;
+}
+
+.menu {
+  font-family: Georgia;
+}
+Instead of writing font-family: Georgia twice for two selectors, we can separate the selectors by a comma to apply the same style to both, like this:
+
+h1, 
+.menu {
+  font-family: Georgia;
+}
+By separating the CSS selectors with a comma, both the h1 and the .menu elements will receive the font-family: Georgia styling.
